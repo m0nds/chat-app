@@ -15,7 +15,7 @@ const Chat = ({ location }) => {
     const [room, setRoom] = useState('');
     const [message, setMessage] = useState('');
     const [messages, setMessages] = useState([]);
-    const ENDPOINT = 'localhost:8080';
+    const ENDPOINT = 'https://chat-app-ogaf.onrender.com/';
 
     useEffect(() => {
         const { name, room } = queryString.parse(location.search);
@@ -49,8 +49,6 @@ const Chat = ({ location }) => {
             socket.emit('sendMessage', message, () => setMessage(''));
         }
     }
-
-    console.log(message, messages);
 
     return (
         <div className="outerContainer">
